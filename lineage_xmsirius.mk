@@ -7,6 +7,7 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -18,7 +19,7 @@ PRODUCT_NAME := lineage_xmsirius
 PRODUCT_DEVICE := xmsirius
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Mi 8 SE
+PRODUCT_MODEL := MI 8 SE
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
