@@ -23,6 +23,9 @@ BOARD_SUPER_PARTITION_CUST_DEVICE_SIZE := 872415232
 # Kernel
 TARGET_KERNEL_CONFIG += xiaomi/sirius.config
 
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 

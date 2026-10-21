@@ -17,7 +17,6 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
@@ -258,7 +257,7 @@
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">12</integer>
+    <integer name="config_screenBrightnessDim">5</integer>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
@@ -266,7 +265,12 @@
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">12</integer>
+    <integer name="config_screenBrightnessSettingMinimum">3</integer>
+
+    <!-- Screen brightness used to dim the screen while dozing in a very low power state.
+         May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDoze">7</integer>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
@@ -305,6 +309,37 @@
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">
-        M-273,38 C-267.971,66.428 -258.501,85 -219,85 L219,85 C258.501,85 267.971,66.428 273,38 L275,27 C278.312,8.531 288.613,3.53 293,2 C298.735,-0.000999997016 303.336,2.98420143e-09 308,-1.9732127e-09 L-308,-1.9732127e-09 C-303.335,2.98420143e-09 -298.735,-0.000999997016 -293,2 C-288.613,3.53 -278.312,8.531 -275,27 L-273,38 Z
+        M -270 46
+        C -263 71 -258 84 -219 85
+        L 219 85
+        C 258 84 263 71 270 46
+        L 273 29
+        C 275 10 280 5 291 1
+        C 296 0 299 0 299 0
+        L -299 0
+        C -299 0 -296 0 -291 1
+        C -280 5 -275 10 -273 29
+        L -270 46
+        Z
+    </string>
+
+    <!-- Whether the display cutout region of the main built-in display should be forced to
+         black in software (to avoid aliasing or emulate a cutout that is not physically existent).
+     -->
+    <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
+
+    <!-- Like config_mainBuiltInDisplayCutout, but this path is used to report the
+         one single bounding rect per device edge to the app via
+         {@link DisplayCutout#getBoundingRect}. Note that this path should try to match the visual
+         appearance of the cutout as much as possible, and may be smaller than
+         config_mainBuiltInDisplayCutout
+         -->
+    <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
+        M 255 85
+        L -255 85
+        L -255 0
+        L 255 0
+        L 255 85
+        Z
     </string>
 </resources>

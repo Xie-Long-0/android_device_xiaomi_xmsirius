@@ -8,6 +8,7 @@
 
 function blob_fixup() {
     case "${1}" in
+        vendor/lib/libswregistrationalgo.so) ;&
         vendor/lib/libarcsoft_beautyshot.so \
         | vendor/lib/libarcsoft_dualcam_optical_zoom_control.so)
             "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
@@ -19,6 +20,8 @@ function blob_fixup() {
             ;;
         vendor/lib/camera/components/com.qti.node.watermark.so)
             grep -q "libpiex_shim.so" "${2}" || ${PATCHELF} --add-needed "libpiex_shim.so" "${2}"
+            ;;
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-full.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
             ;;
     esac
 }
